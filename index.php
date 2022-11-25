@@ -6,7 +6,7 @@
     
     if (!strpos($_SERVER['REQUEST_URI'], '/charge')) {
         http_response_code(404);
-        echo "Wrong Path, Make Sure It's `/charge`"; exit();
+        echo "Wrong Path, Make Sure It's ", '/charge'; exit();
     }
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         http_response_code(404);
