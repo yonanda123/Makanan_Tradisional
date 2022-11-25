@@ -8,18 +8,18 @@
         http_response_code(404);
         echo "Wrong Path, Make Sure It's `/charge`"; exit();
     }
-    if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         http_response_code(404);
         echo "Page not found or wrong HTTP request method is used"; exit();
     }
     $request_body = file_get_contents('php://input');
-    header('Content-Type:');
+    header('Content-Type: application/json');
 
     $charge_result = chargeAPI($api_url, $server_key, $request_body);
 
     http_response_code($charge_result['http_code']);
 
-    echo $charge_result['result'];
+    echo $charge_result['body'];
 
     function chargeAPI($api_url, $server_key, $request_body){
         $ch = curl_init();
@@ -41,6 +41,6 @@
             'body' => curl_exec($ch),
             'http_code' => curl_getinfo($ch, CURLINFO_HTTP_CODE),
         );
-        return $result        
+        return $result;       
     }
 ?>
