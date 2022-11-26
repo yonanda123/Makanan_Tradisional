@@ -11,7 +11,8 @@ $api_url = $is_production ?
 
 if(!strpos($_SERVER['REQUEST_URI'], '/charge') ) {
   http_response_code(404); 
-  echo "wrong path, make sure it's `/charge`"; exit();
+  //echo "wrong path, make sure it's `/charge`"; exit();
+  echo ""; exit();
 }
 
 if( $_SERVER['REQUEST_METHOD'] !== 'POST'){
