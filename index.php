@@ -6,7 +6,7 @@ $is_production = false;
 
 $api_url = $is_production ? 
   'https://app.midtrans.com/snap/v1/transactions' : 
-  'https://app.sandbox.midtrans.com/snap/v2/vtweb/cf9534e3-ddf7-43f9-a1b7-5f618d2d1c96?gopayMode=deeplink';
+  'https://app.sandbox.midtrans.com/snap/v1/transactions';
 
 
 if(!strpos($_SERVER['REQUEST_URI'], '/charge') ) {
